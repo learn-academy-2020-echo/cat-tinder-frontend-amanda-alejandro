@@ -8,9 +8,9 @@ class Header extends Component {
 				<Navbar bg='light' variant='light'>
 					{/* <Navbar.Brand href='#home'>Navbar</Navbar.Brand> */}
 					<Nav className='mr-auto'>
-						<NavLink href='#home'>Home</NavLink>
-						<NavLink href='#features'>Login</NavLink>
-						<NavLink href='#pricing'>Sign Up</NavLink>
+						<NavLink href='/'>Home</NavLink>
+						<NavLink href='/catindex'>Meet the Cats</NavLink>
+						<NavLink href='/catnew'>Add a Cat</NavLink>
 					</Nav>
 				</Navbar>
 			</Fragment>

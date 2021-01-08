@@ -1,11 +1,19 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 
 class CatIndex extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
       <h1>CatIndex</h1>
-      </div>
+      {this.props.cats.map((cat, index) => {
+        return(
+          <a href={`/catshow/${cat.id}`}>
+          {' '}
+          <p key={index}>{cat.name}</p>
+          </a>
+        )
+      })}
+      </Fragment>
     )
   }
 }
