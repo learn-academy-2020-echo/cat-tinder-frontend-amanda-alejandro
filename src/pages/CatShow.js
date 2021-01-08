@@ -15,6 +15,12 @@ class CatShow extends Component {
 				</div>
 				<Link to='/catindex'>
 					<Button variant='primary'>Go Back To Cats</Button>
+				</Link>{' '}
+				<Link to={`/catedit/${cat.id}`}>
+					<Button variant='primary'>Edit This Cat</Button>
+				</Link>{' '}
+				<Link to='#'>
+					<Button variant='primary'>Delete This Cat</Button>
 				</Link>
 			</Fragment>
 		)

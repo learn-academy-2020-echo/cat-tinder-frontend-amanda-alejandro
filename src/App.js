@@ -26,6 +26,11 @@ class App extends Component {
 		console.log(newCat)
 	}
 
+	updateCat = (cat, id) => {
+		console.log('cat:', cat)
+		console.log('id:', id)
+	}
+
 	render() {
 		return (
 			<Router>
@@ -62,7 +67,18 @@ class App extends Component {
 					/>
 
 					{/* Static Route */}
-					<Route path='/catedit' component={CatEdit} />
+					{/* <Route path='/catedit' component={CatEdit} /> */}
+					{/* Dynamic Route */}
+					<Route
+						exact
+						path='/catedit/:id'
+						render={(props) => {
+							let id = props.match.params.id
+							let cat = this.state.cats.find((cat) => cat.id === parseInt(id))
+							return <CatEdit updateCat={this.updateCat} cat={cat} />
+						}}
+					/>
+
 					<Route component={NotFound} />
 				</Switch>
 				<Footer />
