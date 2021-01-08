@@ -5,7 +5,7 @@ class Header extends Component {
 	render() {
 		return (
 			<Fragment>
-				<Navbar bg='light' variant='light'>
+				<Navbar className='nav-bar' bg='light' variant='light'>
 					{/* <Navbar.Brand href='#home'>Navbar</Navbar.Brand> */}
 					<Nav className='mr-auto'>
 						<NavLink href='/'>Home</NavLink>
