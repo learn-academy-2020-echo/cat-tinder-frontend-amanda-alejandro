@@ -21,7 +21,8 @@ class CatNew extends Component {
 		this.setState({ form: form })
 	}
 
-	handleSubmit = () => {
+	handleSubmit = (e) => {
+		e.preventDefault()
 		this.props.createCat(this.state.form)
 		this.setState({ submitted: true })
 	}
@@ -29,6 +30,7 @@ class CatNew extends Component {
 	render() {
 		return (
 			<Fragment>
+				<h2>Create A New Cat</h2>
 				<Form>
 					<FormGroup>
 						<Label>Name</Label>
