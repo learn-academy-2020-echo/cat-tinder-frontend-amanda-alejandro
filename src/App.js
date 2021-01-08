@@ -22,27 +22,28 @@ class App extends Component {
 		}
 	}
 
-	// useHeader = () => {
-	//   if(path === '/') {
-	//     return alert('not it')
-	//   } else {
-	//     return <Header />
-	//   }
-	// }
+	createCat = (newCat) => {
+		console.log(newCat)
+	}
 
 	render() {
 		return (
 			<Router>
-				{/* Condition Render all but home */}
 				<Header />
 				<Switch>
 					<Route exact path='/' component={Home} />
 
+					{/* Static Route */}
+					{/* <Route path='/catindex' component={CatIndex} /> */}
+					{/* Dynamic Route */}
 					<Route
 						path='/catindex'
 						render={(props) => <CatIndex cats={this.state.cats} />}
 					/>
 
+					{/* Static Route */}
+					{/* <Route path='/catshow/:id' component={CatShow} /> */}
+					{/* Dynamic Route */}
 					<Route
 						path='/catshow/:id'
 						render={(props) => {
@@ -52,7 +53,15 @@ class App extends Component {
 						}}
 					/>
 
-					<Route path='/catnew' component={CatNew} />
+					{/* Static Route */}
+					{/* <Route path='/catnew' component={CatNew} /> */}
+					{/* Dynamic Route */}
+					<Route
+						path='/catnew'
+						render={(props) => <CatNew createCat={this.createCat} />}
+					/>
+
+					{/* Static Route */}
 					<Route path='/catedit' component={CatEdit} />
 					<Route component={NotFound} />
 				</Switch>
