@@ -7,10 +7,12 @@ class CatIndex extends Component {
 				<h1>Cat Index</h1>
 				{this.props.cats.map((cat, index) => {
 					return (
-						<a href={`/catshow/${cat.id}`}>
-							{' '}
-							<p key={index}>{cat.name}</p>
-						</a>
+						<div key={index}>
+							<a href={`/catshow/${cat.id}`}>
+								{' '}
+								<p>{cat.name}</p>
+							</a>
+						</div>
 					)
 				})}
 			</Fragment>
