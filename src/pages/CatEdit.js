@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 class CatEdit extends Component {
@@ -72,9 +72,15 @@ class CatEdit extends Component {
 								value={this.state.form.image}
 							/>
 						</FormGroup>
-						<Button variant='primary' name='submit' onClick={this.handleSubmit}>
-							Edit This Cat
-						</Button>
+						<Link>
+							<Button
+								variant='primary'
+								name='submit'
+								onClick={this.handleSubmit}
+							>
+								Edit This Cat
+							</Button>
+						</Link>
 					</Form>
 
 					{this.state.submitted && (

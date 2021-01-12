@@ -19,7 +19,7 @@ class CatShow extends Component {
 				<Container>
 					<Row>
 						<Col>
-							<h1 className='title'>Meet {cat.name.toUpperCase(0)}</h1>
+							<h1 className='title'>Meet {cat.name.toUpperCase()}</h1>
 						</Col>
 					</Row>
 					<Row>

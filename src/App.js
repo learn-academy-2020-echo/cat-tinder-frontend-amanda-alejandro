@@ -60,9 +60,26 @@ class App extends Component {
 			})
 	}
 
-	updateCat = (cat, id) => {
-		console.log('cat:', cat)
-		console.log('id:', id)
+	updateCat = (editcat, id) => {
+		return fetch(`http://localhost:3000/cats/${id}`, {
+			body: JSON.stringify(editcat),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'PATCH',
+		})
+			.then((response) => {
+				if (response.status === 422) {
+					alert('Please check your submission.')
+				}
+				return response.json()
+			})
+			.then((payload) => {
+				this.catIndex()
+			})
+			.catch((errors) => {
+				console.log('update errors:', errors)
+			})
 	}
 
 	render() {
@@ -88,7 +105,7 @@ class App extends Component {
 						render={(props) => {
 							const id = props.match.params.id
 							let cat = this.state.cats.find((cat) => cat.id === parseInt(id))
-							return <CatShow cat={cat} />
+							return this.state.cats.length > 0 && <CatShow cat={cat} />
 						}}
 					/>
 
@@ -109,7 +126,11 @@ class App extends Component {
 						render={(props) => {
 							let id = props.match.params.id
 							let cat = this.state.cats.find((cat) => cat.id === parseInt(id))
-							return <CatEdit updateCat={this.updateCat} cat={cat} />
+							return (
+								this.state.cats.length > 0 && (
+									<CatEdit updateCat={this.updateCat} cat={cat} />
+								)
+							)
 						}}
 					/>
 
@@ -121,3 +142,5 @@ class App extends Component {
 	}
 }
 export default App
+
+// this.state.cats.length > 0 && (
