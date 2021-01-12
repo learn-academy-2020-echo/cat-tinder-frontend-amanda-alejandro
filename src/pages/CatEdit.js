@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 class CatEdit extends Component {
 	constructor(props) {
@@ -31,54 +31,56 @@ class CatEdit extends Component {
 	render() {
 		return (
 			<Fragment>
-				<h2>Edit This Cat</h2>
-				<Form>
-					<FormGroup>
-						<Label>Name</Label>
-						<Input
-							type='text'
-							name='name'
-							onChange={this.handleChange}
-							value={this.state.form.name}
-						/>
-					</FormGroup>
+				<Container>
+					<h2>Edit This Cat</h2>
+					<Form>
+						<FormGroup>
+							<Label>Name</Label>
+							<Input
+								type='text'
+								name='name'
+								onChange={this.handleChange}
+								value={this.state.form.name}
+							/>
+						</FormGroup>
 
-					<FormGroup>
-						<Label>Age</Label>
-						<Input
-							type='number'
-							name='age'
-							onChange={this.handleChange}
-							value={this.state.form.age}
-						/>
-					</FormGroup>
+						<FormGroup>
+							<Label>Age</Label>
+							<Input
+								type='number'
+								name='age'
+								onChange={this.handleChange}
+								value={this.state.form.age}
+							/>
+						</FormGroup>
 
-					<FormGroup>
-						<Label>Enjoys</Label>
-						<Input
-							type='text'
-							name='enjoys'
-							onChange={this.handleChange}
-							value={this.state.form.enjoys}
-						/>
-					</FormGroup>
-					<FormGroup>
-						<Label>Image</Label>
-						<Input
-							type='text'
-							name='image'
-							onChange={this.handleChange}
-							value={this.state.form.image}
-						/>
-					</FormGroup>
-					<Button variant='primary' name='submit' onClick={this.handleSubmit}>
-						Edit This Cat
-					</Button>
-				</Form>
+						<FormGroup>
+							<Label>Enjoys</Label>
+							<Input
+								type='text'
+								name='enjoys'
+								onChange={this.handleChange}
+								value={this.state.form.enjoys}
+							/>
+						</FormGroup>
+						<FormGroup>
+							<Label>Image</Label>
+							<Input
+								type='text'
+								name='image'
+								onChange={this.handleChange}
+								value={this.state.form.image}
+							/>
+						</FormGroup>
+						<Button variant='primary' name='submit' onClick={this.handleSubmit}>
+							Edit This Cat
+						</Button>
+					</Form>
 
-				{this.state.submitted && (
-					<Redirect to={`/catshow/${this.props.cat.id}`} />
-				)}
+					{this.state.submitted && (
+						<Redirect to={`/catshow/${this.props.cat.id}`} />
+					)}
+				</Container>
 			</Fragment>
 		)
 	}

@@ -88,7 +88,7 @@ class App extends Component {
 						render={(props) => {
 							const id = props.match.params.id
 							let cat = this.state.cats.find((cat) => cat.id === parseInt(id))
-							return this.state.cats.length > 0 && <CatShow cat={cat} />
+							return <CatShow cat={cat} />
 						}}
 					/>
 

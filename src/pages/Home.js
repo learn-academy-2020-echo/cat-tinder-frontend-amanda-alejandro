@@ -13,7 +13,7 @@ class Home extends Component {
 			>
 				<div className='text'>
 					<h1>Welcome to Cat Tinder</h1>
-					<p>It's like Tinder but for cats!</p>
+					<h4>It's like Tinder but for cats!</h4>
 				</div>
 			</Jumbotron>
 		)
