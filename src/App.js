@@ -39,8 +39,25 @@ class App extends Component {
 			})
 	}
 
-	createCat = (newCat) => {
-		console.log(newCat)
+	createCat = (newcat) => {
+		fetch('http://localhost:3000/cats', {
+			body: JSON.stringify(newcat),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'POST',
+		})
+			.then((response) => {
+				console.log('response', response)
+				return response.json()
+			})
+			.then((payload) => {
+				console.log(payload)
+				this.catIndex()
+			})
+			.catch((errors) => {
+				console.log('create errors:', errors)
+			})
 	}
 
 	updateCat = (cat, id) => {
