@@ -12,14 +12,31 @@ import CatNew from './pages/CatNew.js'
 import CatShow from './pages/CatShow.js'
 import NotFound from './pages/NotFound.js'
 
-import cats from './mockCats.js'
+// import cats from './mockCats.js'
 
 class App extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			cats: cats,
+			cats: [],
 		}
+	}
+
+	componentDidMount() {
+		this.catIndex()
+	}
+
+	catIndex = () => {
+		fetch('http://localhost:3000/cats')
+			.then((response) => {
+				return response.json()
+			})
+			.then((catsArray) => {
+				this.setState({ cats: catsArray })
+			})
+			.catch((errors) => {
+				console.log('index errors:', errors)
+			})
 	}
 
 	createCat = (newCat) => {
@@ -54,7 +71,7 @@ class App extends Component {
 						render={(props) => {
 							const id = props.match.params.id
 							let cat = this.state.cats.find((cat) => cat.id === parseInt(id))
-							return <CatShow cat={cat} />
+							return this.state.cats.length > 0 && <CatShow cat={cat} />
 						}}
 					/>
 
