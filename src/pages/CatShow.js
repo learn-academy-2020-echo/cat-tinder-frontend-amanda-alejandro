@@ -9,6 +9,7 @@ class CatShow extends Component {
 			<Fragment>
 				<div>
 					<h1>Cat Show</h1>
+					<img src={cat.image} alt={cat.name} />
 					<p>{cat.name}</p>
 					<p>{cat.age}</p>
 					<p>{cat.enjoys}</p>
