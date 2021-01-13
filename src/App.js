@@ -65,6 +65,22 @@ class App extends Component {
 		console.log('id:', id)
 	}
 
+	deleteCat = (id) => {
+		return fetch(`http://localhost:3000/cats/${id}`, {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'DELETE',
+		})
+			.then((response) => {
+				console.log('delete-response:', response)
+				return response.json()
+			})
+			.catch((errors) => {
+				console.log('delete errors:', errors)
+			})
+	}
+
 	render() {
 		return (
 			<Router>
@@ -88,7 +104,7 @@ class App extends Component {
 						render={(props) => {
 							const id = props.match.params.id
 							let cat = this.state.cats.find((cat) => cat.id === parseInt(id))
-							return <CatShow cat={cat} />
+							return <CatShow cat={cat} deleteCat={this.deleteCat} />
 						}}
 					/>
 

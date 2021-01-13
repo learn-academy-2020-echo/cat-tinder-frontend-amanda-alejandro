@@ -40,9 +40,13 @@ class CatShow extends Component {
 											Edit This Cat
 										</Button>
 									</Link>{' '}
-									<Link to='#'>
-										<Button className='button' variant='primary'>
-											Delete This Cat
+									<Link to='/catindex'>
+										<Button
+											className='button'
+											variant='primary'
+											onClick={this.props.deleteCat}
+										>
+											Delete Cat Profile
 										</Button>
 									</Link>
 								</CardBody>
